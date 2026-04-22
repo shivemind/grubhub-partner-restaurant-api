@@ -1,0 +1,90 @@
+type: http
+name: Place a new order
+url: '{{baseUrl}}/orders'
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "restaurantId": "rest-001",
+      "customerName": "Alex Thompson",
+      "items": [
+        {
+          "menuItemId": "item-001",
+          "quantity": 1
+        },
+        {
+          "menuItemId": "item-003",
+          "quantity": 2
+        }
+      ],
+      "deliveryAddress": "200 E Randolph St, Chicago, IL 60601"
+    }
+examples:
+  - response:
+      statusCode: 201
+      statusText: Created
+      body:
+        type: json
+        content: |-
+          {
+            "id": "order-001",
+            "restaurantId": "rest-001",
+            "customerName": "Sarah Johnson",
+            "items": [
+              {
+                "menuItemId": "item-001",
+                "name": "Classic Deep Dish Pizza",
+                "quantity": 1,
+                "price": 18.99
+              },
+              {
+                "menuItemId": "item-001",
+                "name": "Classic Deep Dish Pizza",
+                "quantity": 1,
+                "price": 18.99
+              }
+            ],
+            "status": "preparing",
+            "total": 36.97,
+            "deliveryAddress": "233 S Wacker Dr, Chicago, IL 60606",
+            "createdAt": "2018-12-27T08:23:45.679Z",
+            "updatedAt": "1985-04-26T11:50:31.289Z"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Order placed
+  - response:
+      statusCode: 400
+      statusText: Bad Request
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Invalid request
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found

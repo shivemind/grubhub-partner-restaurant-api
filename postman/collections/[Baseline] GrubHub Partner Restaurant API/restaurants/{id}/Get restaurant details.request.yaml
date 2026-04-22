@@ -1,0 +1,47 @@
+type: http
+name: Get restaurant details
+url: '{{baseUrl}}/restaurants/:id'
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+pathVariables:
+  - key: id
+    value: rest-001
+    description: Restaurant ID
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "id": "rest-001",
+            "name": "Lou Malnati's Pizzeria",
+            "cuisine": "Pizza",
+            "address": "439 N Wells St, Chicago, IL 60654",
+            "rating": 4.7,
+            "isOpen": true,
+            "estimatedDeliveryMin": 30,
+            "estimatedDeliveryMax": 45,
+            "createdAt": "2023-07-27T07:05:09.975Z"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Restaurant details
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found

@@ -1,0 +1,80 @@
+type: http
+name: List partner restaurants
+url: '{{baseUrl}}/restaurants?cuisine=Pizza&isOpen=true'
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+queryParams:
+  - key: cuisine
+    value: Pizza
+    description: Filter by cuisine type
+  - key: isOpen
+    value: 'true'
+    description: Filter by open/closed status
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "count": 5,
+            "restaurants": [
+              {
+                "id": "rest-001",
+                "name": "Lou Malnati's Pizzeria",
+                "cuisine": "Pizza",
+                "address": "439 N Wells St, Chicago, IL 60654",
+                "rating": 4.7,
+                "isOpen": true,
+                "estimatedDeliveryMin": 30,
+                "estimatedDeliveryMax": 45,
+                "createdAt": "1951-01-05T22:05:16.231Z"
+              },
+              {
+                "id": "rest-001",
+                "name": "Lou Malnati's Pizzeria",
+                "cuisine": "Pizza",
+                "address": "439 N Wells St, Chicago, IL 60654",
+                "rating": 4.7,
+                "isOpen": true,
+                "estimatedDeliveryMin": 30,
+                "estimatedDeliveryMax": 45,
+                "createdAt": "2017-06-24T15:46:24.270Z"
+              }
+            ]
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: List of restaurants
+  - response:
+      statusCode: 401
+      statusText: Unauthorized
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Missing API key
+  - response:
+      statusCode: 403
+      statusText: Forbidden
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Invalid API key

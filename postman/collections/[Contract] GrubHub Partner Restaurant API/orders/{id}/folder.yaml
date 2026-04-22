@@ -1,0 +1,5 @@
+type: folder
+name: '{id}'
+items:
+  - ref: ./status/folder.yaml
+  - ref: ./Get order details.request.yaml

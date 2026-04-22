@@ -1,0 +1,101 @@
+type: http
+name: Get restaurant menu
+url: '{{baseUrl}}/restaurants/:restaurantId/menu'
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+pathVariables:
+  - key: restaurantId
+    value: rest-001
+    description: Restaurant ID
+scripts:
+  - type: afterResponse
+    code:
+      - // [Smoke] Auto-generated test assertions
+      - pm.test('Status code is successful (2xx)', function () {
+      - '    pm.response.to.be.success;'
+      - '});'
+      - pm.test('Response time is acceptable', function () {
+      - '    var threshold = parseInt(pm.environment.get(''RESPONSE_TIME_THRESHOLD'') || ''2000'', 10);'
+      - '    pm.expect(pm.response.responseTime).to.be.below(threshold);'
+      - '});'
+      - pm.test('Response body is not empty', function () {
+      - '    if (pm.response.code !== 204) {'
+      - '        var body = pm.response.text();'
+      - '        pm.expect(body.length).to.be.above(0);'
+      - '    }'
+      - '});'
+    language: text/javascript
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "restaurantId": "string",
+            "restaurantName": "string",
+            "itemCount": 1768,
+            "categories": {
+              "key_0": [
+                {
+                  "id": "item-001",
+                  "restaurantId": "rest-001",
+                  "name": "Classic Deep Dish Pizza",
+                  "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
+                  "price": 18.99,
+                  "category": "Entrees",
+                  "available": true
+                },
+                {
+                  "id": "item-001",
+                  "restaurantId": "rest-001",
+                  "name": "Classic Deep Dish Pizza",
+                  "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
+                  "price": 18.99,
+                  "category": "Entrees",
+                  "available": true
+                }
+              ],
+              "key_1": [
+                {
+                  "id": "item-001",
+                  "restaurantId": "rest-001",
+                  "name": "Classic Deep Dish Pizza",
+                  "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
+                  "price": 18.99,
+                  "category": "Entrees",
+                  "available": true
+                },
+                {
+                  "id": "item-001",
+                  "restaurantId": "rest-001",
+                  "name": "Classic Deep Dish Pizza",
+                  "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
+                  "price": 18.99,
+                  "category": "Entrees",
+                  "available": true
+                }
+              ]
+            }
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Full restaurant menu grouped by category
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found

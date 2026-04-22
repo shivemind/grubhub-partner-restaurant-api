@@ -1,0 +1,7 @@
+type: folder
+name: restaurants
+items:
+  - ref: ./{id}/folder.yaml
+  - ref: ./{restaurantId}/folder.yaml
+  - ref: ./List partner restaurants.request.yaml
+  - ref: ./Register a new partner restaurant.request.yaml

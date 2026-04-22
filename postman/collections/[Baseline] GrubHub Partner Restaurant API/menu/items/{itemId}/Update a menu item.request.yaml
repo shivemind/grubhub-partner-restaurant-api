@@ -1,0 +1,54 @@
+type: http
+name: Update a menu item
+url: '{{baseUrl}}/menu/items/:itemId'
+method: PUT
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+pathVariables:
+  - key: itemId
+    value: item-001
+    description: Menu item ID
+body:
+  type: json
+  content: |-
+    {
+      "price": 19.99,
+      "available": true
+    }
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "id": "item-001",
+            "restaurantId": "rest-001",
+            "name": "Classic Deep Dish Pizza",
+            "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
+            "price": 18.99,
+            "category": "Entrees",
+            "available": true
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Menu item updated
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found

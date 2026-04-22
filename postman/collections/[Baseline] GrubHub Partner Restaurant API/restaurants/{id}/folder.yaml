@@ -1,0 +1,6 @@
+type: folder
+name: '{id}'
+items:
+  - ref: ./Get restaurant details.request.yaml
+  - ref: ./Update restaurant information.request.yaml
+  - ref: ./Remove a partner restaurant.request.yaml

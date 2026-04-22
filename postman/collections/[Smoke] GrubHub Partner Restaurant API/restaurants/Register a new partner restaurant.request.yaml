@@ -1,0 +1,87 @@
+type: http
+name: Register a new partner restaurant
+url: '{{baseUrl}}/restaurants'
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Giordano's",
+      "cuisine": "Pizza",
+      "address": "730 N Rush St, Chicago, IL 60611",
+      "estimatedDeliveryMin": 25,
+      "estimatedDeliveryMax": 40
+    }
+scripts:
+  - type: afterResponse
+    code:
+      - // [Smoke] Auto-generated test assertions
+      - pm.test('Status code is successful (2xx)', function () {
+      - '    pm.response.to.be.success;'
+      - '});'
+      - pm.test('Response time is acceptable', function () {
+      - '    var threshold = parseInt(pm.environment.get(''RESPONSE_TIME_THRESHOLD'') || ''2000'', 10);'
+      - '    pm.expect(pm.response.responseTime).to.be.below(threshold);'
+      - '});'
+      - pm.test('Response body is not empty', function () {
+      - '    if (pm.response.code !== 204) {'
+      - '        var body = pm.response.text();'
+      - '        pm.expect(body.length).to.be.above(0);'
+      - '    }'
+      - '});'
+    language: text/javascript
+examples:
+  - response:
+      statusCode: 201
+      statusText: Created
+      body:
+        type: json
+        content: |-
+          {
+            "id": "rest-001",
+            "name": "Lou Malnati's Pizzeria",
+            "cuisine": "Pizza",
+            "address": "439 N Wells St, Chicago, IL 60654",
+            "rating": 4.7,
+            "isOpen": true,
+            "estimatedDeliveryMin": 30,
+            "estimatedDeliveryMax": 45,
+            "createdAt": "1999-07-15T03:41:02.710Z"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Restaurant created
+  - response:
+      statusCode: 400
+      statusText: Bad Request
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Invalid request
+  - response:
+      statusCode: 401
+      statusText: Unauthorized
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Missing API key

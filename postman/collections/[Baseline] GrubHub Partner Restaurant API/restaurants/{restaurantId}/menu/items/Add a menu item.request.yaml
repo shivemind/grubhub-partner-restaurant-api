@@ -1,0 +1,70 @@
+type: http
+name: Add a menu item
+url: '{{baseUrl}}/restaurants/:restaurantId/menu/items'
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+pathVariables:
+  - key: restaurantId
+    value: rest-001
+    description: Restaurant ID
+body:
+  type: json
+  content: |-
+    {
+      "name": "Garlic Bread",
+      "description": "Toasted bread with garlic butter and herbs",
+      "price": 6.99,
+      "category": "Sides"
+    }
+examples:
+  - response:
+      statusCode: 201
+      statusText: Created
+      body:
+        type: json
+        content: |-
+          {
+            "id": "item-001",
+            "restaurantId": "rest-001",
+            "name": "Classic Deep Dish Pizza",
+            "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
+            "price": 18.99,
+            "category": "Entrees",
+            "available": true
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Menu item created
+  - response:
+      statusCode: 400
+      statusText: Bad Request
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Invalid request
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found

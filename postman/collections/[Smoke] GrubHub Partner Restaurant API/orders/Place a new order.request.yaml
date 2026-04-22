@@ -1,0 +1,108 @@
+type: http
+name: Place a new order
+url: '{{baseUrl}}/orders'
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "restaurantId": "rest-001",
+      "customerName": "Alex Thompson",
+      "items": [
+        {
+          "menuItemId": "item-001",
+          "quantity": 1
+        },
+        {
+          "menuItemId": "item-003",
+          "quantity": 2
+        }
+      ],
+      "deliveryAddress": "200 E Randolph St, Chicago, IL 60601"
+    }
+scripts:
+  - type: afterResponse
+    code:
+      - // [Smoke] Auto-generated test assertions
+      - pm.test('Status code is successful (2xx)', function () {
+      - '    pm.response.to.be.success;'
+      - '});'
+      - pm.test('Response time is acceptable', function () {
+      - '    var threshold = parseInt(pm.environment.get(''RESPONSE_TIME_THRESHOLD'') || ''2000'', 10);'
+      - '    pm.expect(pm.response.responseTime).to.be.below(threshold);'
+      - '});'
+      - pm.test('Response body is not empty', function () {
+      - '    if (pm.response.code !== 204) {'
+      - '        var body = pm.response.text();'
+      - '        pm.expect(body.length).to.be.above(0);'
+      - '    }'
+      - '});'
+    language: text/javascript
+examples:
+  - response:
+      statusCode: 201
+      statusText: Created
+      body:
+        type: json
+        content: |-
+          {
+            "id": "order-001",
+            "restaurantId": "rest-001",
+            "customerName": "Sarah Johnson",
+            "items": [
+              {
+                "menuItemId": "item-001",
+                "name": "Classic Deep Dish Pizza",
+                "quantity": 1,
+                "price": 18.99
+              },
+              {
+                "menuItemId": "item-001",
+                "name": "Classic Deep Dish Pizza",
+                "quantity": 1,
+                "price": 18.99
+              }
+            ],
+            "status": "preparing",
+            "total": 36.97,
+            "deliveryAddress": "233 S Wacker Dr, Chicago, IL 60606",
+            "createdAt": "1964-01-06T20:15:30.783Z",
+            "updatedAt": "2000-08-26T13:33:27.772Z"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Order placed
+  - response:
+      statusCode: 400
+      statusText: Bad Request
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Invalid request
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found

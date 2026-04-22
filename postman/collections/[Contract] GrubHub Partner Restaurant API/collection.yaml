@@ -1,0 +1,35 @@
+$schema: https://schema.postman.com/json/draft-2020-12/collection/v3.0.0/
+type: collection
+name: '[Contract] GrubHub Partner Restaurant API'
+description: |-
+  REST API for managing partner restaurants, menus, orders, and delivery
+  tracking on the GrubHub platform. Built to demonstrate Postman v12
+  Enterprise capabilities.
+
+
+  Contact Support:
+   Name: GrubHub API Platform Team
+   Email: api-platform@grubhub.com
+id: 6143d0c4-51a3-4cf6-a743-1bd7b8c465d7
+auth:
+  type: apikey
+  credentials:
+    - key: key
+      value: X-API-Key
+      type: string
+    - key: value
+      value: '{{apiKey}}'
+      type: string
+    - key: in
+      value: header
+      type: string
+variables:
+  - key: baseUrl
+    value: https://api.grubhub.com/partner/v1
+items:
+  - ref: ./health/folder.yaml
+  - ref: ./restaurants/folder.yaml
+  - ref: ./menu/folder.yaml
+  - ref: ./orders/folder.yaml
+  - ref: ./deliveries/folder.yaml
+  - ref: ./00 - Resolve Secrets.request.yaml

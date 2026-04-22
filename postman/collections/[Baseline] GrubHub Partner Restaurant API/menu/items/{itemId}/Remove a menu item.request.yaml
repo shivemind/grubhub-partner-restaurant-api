@@ -1,0 +1,40 @@
+type: http
+name: Remove a menu item
+url: '{{baseUrl}}/menu/items/:itemId'
+method: DELETE
+headers:
+  - key: Accept
+    value: application/json
+pathVariables:
+  - key: itemId
+    value: item-001
+    description: Menu item ID
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "message": "string",
+            "id": "string"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Menu item removed
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found

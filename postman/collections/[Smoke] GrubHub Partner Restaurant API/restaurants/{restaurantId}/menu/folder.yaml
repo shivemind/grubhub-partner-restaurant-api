@@ -1,0 +1,5 @@
+type: folder
+name: menu
+items:
+  - ref: ./items/folder.yaml
+  - ref: ./Get restaurant menu.request.yaml

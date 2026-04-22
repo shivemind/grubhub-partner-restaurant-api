@@ -1,0 +1,5 @@
+type: folder
+name: deliveries
+items:
+  - ref: ./{orderId}/folder.yaml
+  - ref: ./active/folder.yaml

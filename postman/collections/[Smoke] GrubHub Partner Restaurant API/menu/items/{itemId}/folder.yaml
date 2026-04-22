@@ -1,0 +1,5 @@
+type: folder
+name: '{itemId}'
+items:
+  - ref: ./Update a menu item.request.yaml
+  - ref: ./Remove a menu item.request.yaml

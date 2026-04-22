@@ -1,0 +1,96 @@
+type: http
+name: List orders
+url: '{{baseUrl}}/orders?status=cancelled&restaurantId=string'
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+queryParams:
+  - key: status
+    value: cancelled
+    description: Filter by order status
+  - key: restaurantId
+    value: string
+    description: Filter by restaurant ID
+scripts:
+  - type: afterResponse
+    code:
+      - // [Smoke] Auto-generated test assertions
+      - pm.test('Status code is successful (2xx)', function () {
+      - '    pm.response.to.be.success;'
+      - '});'
+      - pm.test('Response time is acceptable', function () {
+      - '    var threshold = parseInt(pm.environment.get(''RESPONSE_TIME_THRESHOLD'') || ''2000'', 10);'
+      - '    pm.expect(pm.response.responseTime).to.be.below(threshold);'
+      - '});'
+      - pm.test('Response body is not empty', function () {
+      - '    if (pm.response.code !== 204) {'
+      - '        var body = pm.response.text();'
+      - '        pm.expect(body.length).to.be.above(0);'
+      - '    }'
+      - '});'
+    language: text/javascript
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "count": 8470,
+            "orders": [
+              {
+                "id": "order-001",
+                "restaurantId": "rest-001",
+                "customerName": "Sarah Johnson",
+                "items": [
+                  {
+                    "menuItemId": "item-001",
+                    "name": "Classic Deep Dish Pizza",
+                    "quantity": 1,
+                    "price": 18.99
+                  },
+                  {
+                    "menuItemId": "item-001",
+                    "name": "Classic Deep Dish Pizza",
+                    "quantity": 1,
+                    "price": 18.99
+                  }
+                ],
+                "status": "preparing",
+                "total": 36.97,
+                "deliveryAddress": "233 S Wacker Dr, Chicago, IL 60606",
+                "createdAt": "2025-09-03T12:53:18.198Z",
+                "updatedAt": "2004-06-08T02:47:07.110Z"
+              },
+              {
+                "id": "order-001",
+                "restaurantId": "rest-001",
+                "customerName": "Sarah Johnson",
+                "items": [
+                  {
+                    "menuItemId": "item-001",
+                    "name": "Classic Deep Dish Pizza",
+                    "quantity": 1,
+                    "price": 18.99
+                  },
+                  {
+                    "menuItemId": "item-001",
+                    "name": "Classic Deep Dish Pizza",
+                    "quantity": 1,
+                    "price": 18.99
+                  }
+                ],
+                "status": "preparing",
+                "total": 36.97,
+                "deliveryAddress": "233 S Wacker Dr, Chicago, IL 60606",
+                "createdAt": "1961-04-14T02:01:24.656Z",
+                "updatedAt": "1969-03-15T22:54:34.662Z"
+              }
+            ]
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: List of orders

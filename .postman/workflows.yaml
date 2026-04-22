@@ -1,0 +1,8 @@
+workflows:
+  syncSpecToCollection:
+    - spec: ../specs/grubhub-partner-api.yaml
+      collection: ../postman/collections/[Baseline] GrubHub Partner Restaurant API
+    - spec: ../specs/grubhub-partner-api.yaml
+      collection: ../postman/collections/[Smoke] GrubHub Partner Restaurant API
+    - spec: ../specs/grubhub-partner-api.yaml
+      collection: ../postman/collections/[Contract] GrubHub Partner Restaurant API

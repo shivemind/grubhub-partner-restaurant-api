@@ -1,0 +1,98 @@
+type: http
+name: List partner restaurants
+url: '{{baseUrl}}/restaurants?cuisine=Pizza&isOpen=true'
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+queryParams:
+  - key: cuisine
+    value: Pizza
+    description: Filter by cuisine type
+  - key: isOpen
+    value: 'true'
+    description: Filter by open/closed status
+scripts:
+  - type: afterResponse
+    code:
+      - // [Smoke] Auto-generated test assertions
+      - pm.test('Status code is successful (2xx)', function () {
+      - '    pm.response.to.be.success;'
+      - '});'
+      - pm.test('Response time is acceptable', function () {
+      - '    var threshold = parseInt(pm.environment.get(''RESPONSE_TIME_THRESHOLD'') || ''2000'', 10);'
+      - '    pm.expect(pm.response.responseTime).to.be.below(threshold);'
+      - '});'
+      - pm.test('Response body is not empty', function () {
+      - '    if (pm.response.code !== 204) {'
+      - '        var body = pm.response.text();'
+      - '        pm.expect(body.length).to.be.above(0);'
+      - '    }'
+      - '});'
+    language: text/javascript
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "count": 5,
+            "restaurants": [
+              {
+                "id": "rest-001",
+                "name": "Lou Malnati's Pizzeria",
+                "cuisine": "Pizza",
+                "address": "439 N Wells St, Chicago, IL 60654",
+                "rating": 4.7,
+                "isOpen": true,
+                "estimatedDeliveryMin": 30,
+                "estimatedDeliveryMax": 45,
+                "createdAt": "1969-04-07T19:14:14.846Z"
+              },
+              {
+                "id": "rest-001",
+                "name": "Lou Malnati's Pizzeria",
+                "cuisine": "Pizza",
+                "address": "439 N Wells St, Chicago, IL 60654",
+                "rating": 4.7,
+                "isOpen": true,
+                "estimatedDeliveryMin": 30,
+                "estimatedDeliveryMax": 45,
+                "createdAt": "2004-12-20T17:24:28.815Z"
+              }
+            ]
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: List of restaurants
+  - response:
+      statusCode: 401
+      statusText: Unauthorized
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Missing API key
+  - response:
+      statusCode: 403
+      statusText: Forbidden
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Invalid API key

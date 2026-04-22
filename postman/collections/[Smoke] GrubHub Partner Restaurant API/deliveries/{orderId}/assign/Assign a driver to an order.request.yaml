@@ -1,0 +1,105 @@
+type: http
+name: Assign a driver to an order
+url: '{{baseUrl}}/deliveries/:orderId/assign'
+method: PUT
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+pathVariables:
+  - key: orderId
+    value: order-003
+    description: Order ID
+body:
+  type: json
+  content: |-
+    {
+      "driverName": "Marcus Rivera",
+      "driverPhone": "+1-312-555-0188"
+    }
+scripts:
+  - type: afterResponse
+    code:
+      - // [Smoke] Auto-generated test assertions
+      - pm.test('Status code is successful (2xx)', function () {
+      - '    pm.response.to.be.success;'
+      - '});'
+      - pm.test('Response time is acceptable', function () {
+      - '    var threshold = parseInt(pm.environment.get(''RESPONSE_TIME_THRESHOLD'') || ''2000'', 10);'
+      - '    pm.expect(pm.response.responseTime).to.be.below(threshold);'
+      - '});'
+      - pm.test('Response body is not empty', function () {
+      - '    if (pm.response.code !== 204) {'
+      - '        var body = pm.response.text();'
+      - '        pm.expect(body.length).to.be.above(0);'
+      - '    }'
+      - '});'
+    language: text/javascript
+examples:
+  - response:
+      statusCode: 201
+      statusText: Created
+      body:
+        type: json
+        content: |-
+          {
+            "orderId": "string",
+            "status": "delivered",
+            "driverName": "Aisha Williams",
+            "driverPhone": "+1-312-555-0293",
+            "estimatedArrival": "1964-01-26T15:52:39.045Z",
+            "currentLocation": {
+              "lat": 41.8781,
+              "lng": -87.6298
+            },
+            "deliveryAddress": "string",
+            "assignedAt": "1994-09-24T16:28:10.661Z",
+            "deliveredAt": "1980-01-08T19:10:26.116Z"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Driver assigned
+  - response:
+      statusCode: 400
+      statusText: Bad Request
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Invalid request
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found
+  - response:
+      statusCode: 409
+      statusText: Conflict
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Driver already assigned

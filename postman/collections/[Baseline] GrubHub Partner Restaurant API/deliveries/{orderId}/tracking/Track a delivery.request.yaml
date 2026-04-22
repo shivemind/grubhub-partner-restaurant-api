@@ -1,0 +1,50 @@
+type: http
+name: Track a delivery
+url: '{{baseUrl}}/deliveries/:orderId/tracking'
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+pathVariables:
+  - key: orderId
+    value: order-002
+    description: Order ID to track
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "orderId": "string",
+            "status": "in_transit",
+            "driverName": "Aisha Williams",
+            "driverPhone": "+1-312-555-0293",
+            "estimatedArrival": "2022-07-17T09:25:06.136Z",
+            "currentLocation": {
+              "lat": 41.8781,
+              "lng": -87.6298
+            },
+            "deliveryAddress": "string",
+            "assignedAt": "1996-02-24T01:15:55.559Z",
+            "deliveredAt": "1967-09-17T01:55:28.839Z"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Delivery tracking information
+  - response:
+      statusCode: 404
+      statusText: Not Found
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Resource not found

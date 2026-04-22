@@ -1,0 +1,4 @@
+type: folder
+name: items
+items:
+  - ref: ./Add a menu item.request.yaml

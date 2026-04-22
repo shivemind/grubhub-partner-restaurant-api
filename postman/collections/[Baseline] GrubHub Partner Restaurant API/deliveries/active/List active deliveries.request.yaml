@@ -1,0 +1,55 @@
+type: http
+name: List active deliveries
+url: '{{baseUrl}}/deliveries/active'
+method: GET
+headers:
+  - key: Accept
+    value: application/json
+examples:
+  - response:
+      statusCode: 200
+      statusText: OK
+      body:
+        type: json
+        content: |-
+          {
+            "count": 7755,
+            "deliveries": [
+              {
+                "orderId": "string",
+                "status": "in_transit",
+                "driverName": "Aisha Williams",
+                "driverPhone": "+1-312-555-0293",
+                "estimatedArrival": "2002-03-19T20:48:11.342Z",
+                "currentLocation": {
+                  "lat": 41.8781,
+                  "lng": -87.6298
+                },
+                "deliveryAddress": "string",
+                "assignedAt": "1946-09-24T04:55:42.613Z",
+                "deliveredAt": "2006-12-06T04:32:18.651Z",
+                "customerName": "string",
+                "restaurantId": "string"
+              },
+              {
+                "orderId": "string",
+                "status": "assigned",
+                "driverName": "Aisha Williams",
+                "driverPhone": "+1-312-555-0293",
+                "estimatedArrival": "1972-11-23T00:28:13.012Z",
+                "currentLocation": {
+                  "lat": 41.8781,
+                  "lng": -87.6298
+                },
+                "deliveryAddress": "string",
+                "assignedAt": "2014-08-15T12:20:45.244Z",
+                "deliveredAt": "1994-12-07T00:23:16.495Z",
+                "customerName": "string",
+                "restaurantId": "string"
+              }
+            ]
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Active deliveries

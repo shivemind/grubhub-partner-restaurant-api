@@ -1,0 +1,69 @@
+type: http
+name: Register a new partner restaurant
+url: '{{baseUrl}}/restaurants'
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Giordano's",
+      "cuisine": "Pizza",
+      "address": "730 N Rush St, Chicago, IL 60611",
+      "estimatedDeliveryMin": 25,
+      "estimatedDeliveryMax": 40
+    }
+examples:
+  - response:
+      statusCode: 201
+      statusText: Created
+      body:
+        type: json
+        content: |-
+          {
+            "id": "rest-001",
+            "name": "Lou Malnati's Pizzeria",
+            "cuisine": "Pizza",
+            "address": "439 N Wells St, Chicago, IL 60654",
+            "rating": 4.7,
+            "isOpen": true,
+            "estimatedDeliveryMin": 30,
+            "estimatedDeliveryMax": 45,
+            "createdAt": "2023-07-27T07:05:09.975Z"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Restaurant created
+  - response:
+      statusCode: 400
+      statusText: Bad Request
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Invalid request
+  - response:
+      statusCode: 401
+      statusText: Unauthorized
+      body:
+        type: json
+        content: |-
+          {
+            "error": "Not Found",
+            "message": "Resource not found"
+          }
+      headers:
+        - key: Content-Type
+          value: application/json
+    name: Missing API key

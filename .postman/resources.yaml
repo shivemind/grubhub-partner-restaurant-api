@@ -1,4 +1,20 @@
-# Workspace id is optional. The onboarding workflow will reuse or create it by name.
+workspace:
+  id: c1f1e4c3-1dfb-4a55-a58c-36badd6adf4e
 localResources:
+  collections:
+    - ../postman/collections/[Baseline] GrubHub Partner Restaurant API
+    - ../postman/collections/[Smoke] GrubHub Partner Restaurant API
+    - ../postman/collections/[Contract] GrubHub Partner Restaurant API
+  environments:
+    - ../postman/environments/dev.postman_environment.json
+    - ../postman/environments/prod.postman_environment.json
   specs:
     - ../specs/grubhub-partner-api.yaml
+cloudResources:
+  collections:
+    ../postman/collections/[Baseline] GrubHub Partner Restaurant API: 52400725-08ee7371-224b-4eed-84c4-6763e5587e98
+    ../postman/collections/[Smoke] GrubHub Partner Restaurant API: 52400725-86f15d5d-0f2f-4442-be5e-7b2ff8addd69
+    ../postman/collections/[Contract] GrubHub Partner Restaurant API: 52400725-6143d0c4-51a3-4cf6-a743-1bd7b8c465d7
+  environments:
+    ../postman/environments/dev.postman_environment.json: 52400725-28854594-1bfc-4881-9941-979538f9a0c3
+    ../postman/environments/prod.postman_environment.json: 52400725-4a9adf0e-9c44-4e01-81b4-535935c512a9
