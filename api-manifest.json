@@ -6,7 +6,7 @@
   "spec_path": "specs/grubhub-partner-api.yaml",
   "source": {
     "type": "local",
-    "workspace_id": "b498c773-f575-4e4f-995f-cdd10990188e",
+    "workspace_id": "",
     "api_id": "",
     "spec_id": "",
     "schema_id": "",
@@ -38,11 +38,11 @@
     "system_env_map": {},
     "requester_email": "",
     "workspace_admin_user_ids": "",
-    "team_id": "14643263",
+    "team_id": "13569807",
     "workspace_team_id": "",
     "org_mode": false,
-    "require_api_catalog_link": true,
-    "require_system_env_association": true,
+    "require_api_catalog_link": false,
+    "require_system_env_association": false,
     "integration_backend": "bifrost"
   }
 }
