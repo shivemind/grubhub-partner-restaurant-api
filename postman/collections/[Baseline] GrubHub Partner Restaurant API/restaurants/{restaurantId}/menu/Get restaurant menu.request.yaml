@@ -19,7 +19,7 @@ examples:
           {
             "restaurantId": "string",
             "restaurantName": "string",
-            "itemCount": 8855,
+            "itemCount": 3665,
             "categories": {
               "key_0": [
                 {
@@ -42,46 +42,6 @@ examples:
                 }
               ],
               "key_1": [
-                {
-                  "id": "item-001",
-                  "restaurantId": "rest-001",
-                  "name": "Classic Deep Dish Pizza",
-                  "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
-                  "price": 18.99,
-                  "category": "Entrees",
-                  "available": true
-                },
-                {
-                  "id": "item-001",
-                  "restaurantId": "rest-001",
-                  "name": "Classic Deep Dish Pizza",
-                  "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
-                  "price": 18.99,
-                  "category": "Entrees",
-                  "available": true
-                }
-              ],
-              "key_2": [
-                {
-                  "id": "item-001",
-                  "restaurantId": "rest-001",
-                  "name": "Classic Deep Dish Pizza",
-                  "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
-                  "price": 18.99,
-                  "category": "Entrees",
-                  "available": true
-                },
-                {
-                  "id": "item-001",
-                  "restaurantId": "rest-001",
-                  "name": "Classic Deep Dish Pizza",
-                  "description": "Buttercrust deep dish with sausage, mozzarella, and chunky tomato sauce",
-                  "price": 18.99,
-                  "category": "Entrees",
-                  "available": true
-                }
-              ],
-              "key_3": [
                 {
                   "id": "item-001",
                   "restaurantId": "rest-001",

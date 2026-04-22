@@ -49,7 +49,7 @@ examples:
                 "isOpen": true,
                 "estimatedDeliveryMin": 30,
                 "estimatedDeliveryMax": 45,
-                "createdAt": "1969-04-07T19:14:14.846Z"
+                "createdAt": "2007-02-21T04:59:11.335Z"
               },
               {
                 "id": "rest-001",
@@ -60,7 +60,7 @@ examples:
                 "isOpen": true,
                 "estimatedDeliveryMin": 30,
                 "estimatedDeliveryMax": 45,
-                "createdAt": "2004-12-20T17:24:28.815Z"
+                "createdAt": "1955-01-26T06:46:03.834Z"
               }
             ]
           }

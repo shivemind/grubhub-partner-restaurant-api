@@ -52,7 +52,7 @@ examples:
             "isOpen": true,
             "estimatedDeliveryMin": 30,
             "estimatedDeliveryMax": 45,
-            "createdAt": "1999-07-15T03:41:02.710Z"
+            "createdAt": "1950-02-01T11:05:21.906Z"
           }
       headers:
         - key: Content-Type

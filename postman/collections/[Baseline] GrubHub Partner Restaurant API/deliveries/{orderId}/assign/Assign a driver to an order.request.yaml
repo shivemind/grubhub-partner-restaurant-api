@@ -30,14 +30,14 @@ examples:
             "status": "in_transit",
             "driverName": "Aisha Williams",
             "driverPhone": "+1-312-555-0293",
-            "estimatedArrival": "2022-07-17T09:25:06.136Z",
+            "estimatedArrival": "1976-01-08T15:22:14.275Z",
             "currentLocation": {
               "lat": 41.8781,
               "lng": -87.6298
             },
             "deliveryAddress": "string",
-            "assignedAt": "1996-02-24T01:15:55.559Z",
-            "deliveredAt": "1967-09-17T01:55:28.839Z"
+            "assignedAt": "1948-09-02T07:25:50.987Z",
+            "deliveredAt": "2009-01-19T22:08:47.300Z"
           }
       headers:
         - key: Content-Type

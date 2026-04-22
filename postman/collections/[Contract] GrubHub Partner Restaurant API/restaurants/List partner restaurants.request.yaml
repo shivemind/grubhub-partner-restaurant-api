@@ -1,6 +1,6 @@
 type: http
 name: List partner restaurants
-url: '{{baseUrl}}/restaurants?cuisine=Pizza&isOpen=true'
+url: '{{baseUrl}}/restaurants?cuisine=Pizza&isOpen=false'
 method: GET
 headers:
   - key: Accept
@@ -10,7 +10,7 @@ queryParams:
     value: Pizza
     description: Filter by cuisine type
   - key: isOpen
-    value: 'true'
+    value: 'false'
     description: Filter by open/closed status
 scripts:
   - type: afterResponse
@@ -92,7 +92,7 @@ examples:
                 "isOpen": true,
                 "estimatedDeliveryMin": 30,
                 "estimatedDeliveryMax": 45,
-                "createdAt": "2012-03-03T17:53:03.406Z"
+                "createdAt": "1977-11-04T07:01:09.480Z"
               },
               {
                 "id": "rest-001",
@@ -103,7 +103,7 @@ examples:
                 "isOpen": true,
                 "estimatedDeliveryMin": 30,
                 "estimatedDeliveryMax": 45,
-                "createdAt": "1976-07-21T16:44:56.143Z"
+                "createdAt": "2015-05-01T03:22:26.956Z"
               }
             ]
           }

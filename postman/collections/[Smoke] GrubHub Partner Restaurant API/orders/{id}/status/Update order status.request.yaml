@@ -63,8 +63,8 @@ examples:
             "status": "preparing",
             "total": 36.97,
             "deliveryAddress": "233 S Wacker Dr, Chicago, IL 60606",
-            "createdAt": "1964-01-06T20:15:30.783Z",
-            "updatedAt": "2000-08-26T13:33:27.772Z"
+            "createdAt": "1980-11-12T20:11:44.092Z",
+            "updatedAt": "1994-05-29T09:45:04.377Z"
           }
       headers:
         - key: Content-Type

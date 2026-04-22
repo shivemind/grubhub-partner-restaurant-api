@@ -1,13 +1,13 @@
 type: http
 name: List orders
-url: '{{baseUrl}}/orders?status=delivered&restaurantId=string'
+url: '{{baseUrl}}/orders?status=in_transit&restaurantId=string'
 method: GET
 headers:
   - key: Accept
     value: application/json
 queryParams:
   - key: status
-    value: delivered
+    value: in_transit
     description: Filter by order status
   - key: restaurantId
     value: string
@@ -81,7 +81,7 @@ examples:
         type: json
         content: |-
           {
-            "count": 576,
+            "count": 3041,
             "orders": [
               {
                 "id": "order-001",
@@ -104,8 +104,8 @@ examples:
                 "status": "preparing",
                 "total": 36.97,
                 "deliveryAddress": "233 S Wacker Dr, Chicago, IL 60606",
-                "createdAt": "2009-11-23T01:53:38.444Z",
-                "updatedAt": "2021-05-09T06:53:06.633Z"
+                "createdAt": "1965-09-23T09:24:20.011Z",
+                "updatedAt": "1992-09-11T09:37:14.052Z"
               },
               {
                 "id": "order-001",
@@ -128,8 +128,8 @@ examples:
                 "status": "preparing",
                 "total": 36.97,
                 "deliveryAddress": "233 S Wacker Dr, Chicago, IL 60606",
-                "createdAt": "2023-05-19T09:13:59.742Z",
-                "updatedAt": "1975-10-10T16:23:50.997Z"
+                "createdAt": "2023-02-19T00:53:06.506Z",
+                "updatedAt": "2010-01-08T16:56:32.004Z"
               }
             ]
           }

@@ -36,17 +36,17 @@ examples:
         content: |-
           {
             "orderId": "string",
-            "status": "delivered",
+            "status": "assigned",
             "driverName": "Aisha Williams",
             "driverPhone": "+1-312-555-0293",
-            "estimatedArrival": "1964-01-26T15:52:39.045Z",
+            "estimatedArrival": "1991-11-01T05:19:40.902Z",
             "currentLocation": {
               "lat": 41.8781,
               "lng": -87.6298
             },
             "deliveryAddress": "string",
-            "assignedAt": "1994-09-24T16:28:10.661Z",
-            "deliveredAt": "1980-01-08T19:10:26.116Z"
+            "assignedAt": "1967-02-23T00:26:40.583Z",
+            "deliveredAt": "2025-08-07T12:29:29.026Z"
           }
       headers:
         - key: Content-Type

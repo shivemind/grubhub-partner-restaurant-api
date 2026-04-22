@@ -79,17 +79,17 @@ examples:
         content: |-
           {
             "orderId": "string",
-            "status": "delivered",
+            "status": "in_transit",
             "driverName": "Aisha Williams",
             "driverPhone": "+1-312-555-0293",
-            "estimatedArrival": "1983-10-04T12:11:04.647Z",
+            "estimatedArrival": "1952-09-29T05:48:10.970Z",
             "currentLocation": {
               "lat": 41.8781,
               "lng": -87.6298
             },
             "deliveryAddress": "string",
-            "assignedAt": "2007-08-27T13:55:30.351Z",
-            "deliveredAt": "2008-04-07T16:39:47.672Z"
+            "assignedAt": "1985-07-03T22:03:08.450Z",
+            "deliveredAt": "1980-08-26T20:29:05.676Z"
           }
       headers:
         - key: Content-Type

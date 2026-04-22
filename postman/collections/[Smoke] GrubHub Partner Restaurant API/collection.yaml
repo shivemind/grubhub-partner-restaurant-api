@@ -26,6 +26,7 @@ auth:
 variables:
   - key: baseUrl
     value: https://api.grubhub.com/partner/v1
+    type: any
 items:
   - ref: ./health/folder.yaml
   - ref: ./restaurants/folder.yaml
