@@ -1,0 +1,48 @@
+{
+  "name": "partner-restaurant-api",
+  "project_name": "GrubHub Partner Restaurant API",
+  "domain": "grubhub-platform",
+  "domain_code": "GH",
+  "spec_path": "specs/grubhub-partner-api.yaml",
+  "source": {
+    "type": "local",
+    "workspace_id": "b498c773-f575-4e4f-995f-cdd10990188e",
+    "api_id": "",
+    "spec_id": "",
+    "schema_id": "",
+    "schema_file_path": "grubhub-partner-api.yaml",
+    "spec_file_path": "grubhub-partner-api.yaml"
+  },
+  "github": {
+    "owner": "shivemind",
+    "repo": "grubhub-partner-restaurant-api"
+  },
+  "environments": [
+    "dev",
+    "prod"
+  ],
+  "runtime_urls": {
+    "dev": "http://localhost:3000/api/v1",
+    "prod": "https://api.grubhub.example/v1"
+  },
+  "environment_values": {},
+  "postman": {
+    "workspace_id": "",
+    "workspace_name": "[GH] GrubHub Partner Restaurant API",
+    "spec_name": "GrubHub Partner Restaurant API",
+    "collection_name": "GrubHub Partner Restaurant API",
+    "smoke_collection_name": "GrubHub Partner Restaurant API Smoke",
+    "environment_name_prefix": "GrubHub Partner Restaurant API",
+    "monitor_name": "GrubHub Partner Restaurant API Smoke Monitor",
+    "governance_mapping": {},
+    "system_env_map": {},
+    "requester_email": "",
+    "workspace_admin_user_ids": "",
+    "team_id": "14643263",
+    "workspace_team_id": "",
+    "org_mode": false,
+    "require_api_catalog_link": true,
+    "require_system_env_association": true,
+    "integration_backend": "bifrost"
+  }
+}

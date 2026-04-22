@@ -1,0 +1,4 @@
+# Workspace id is optional. The onboarding workflow will reuse or create it by name.
+localResources:
+  specs:
+    - ../specs/grubhub-partner-api.yaml
